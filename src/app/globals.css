@@ -3,25 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-bone text-charcoal font-sans antialiased;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Visible keyboard focus — WCAG AA floor */
+:focus-visible {
+  outline: 2px solid #b08d57;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(176, 141, 87, 0.35);
+}
+
+@layer components {
+  .label-eyebrow {
+    /* Timber (not brass) on light surfaces — brass fails AA at 12px */
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-timber;
+  }
+
+  .label-eyebrow-on-dark {
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-brass;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-brass px-6 py-3.5 text-base font-semibold text-charcoal transition hover:bg-[#c49a62] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-charcoal/20 bg-bone/90 px-6 py-3.5 text-base font-semibold text-charcoal transition hover:border-charcoal/40 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass;
+  }
+
+  .btn-call {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-charcoal px-6 py-3.5 text-base font-semibold text-bone transition hover:bg-timber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass;
+  }
+
+  .section-pad {
+    @apply px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24;
+  }
+
+  .prose-muted {
+    @apply text-base leading-relaxed text-slate;
   }
 }

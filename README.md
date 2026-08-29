@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Titan Construction — Marketing Site
 
-## Getting Started
+High-converting single-page site for Titan Construction (Kendall County, IL): residential general contracting, remodeling, and electrical.
 
-First, run the development server:
+## Stack
+
+- Next.js 14 (App Router) + TypeScript
+- Tailwind CSS with custom craftsmanship tokens (charcoal / timber / iron / brass / bone / slate)
+- Vercel Analytics
+- Lead API at `POST /api/lead` (Resend email when configured; always persists to `data/leads.jsonl`)
+
+## Local development
 
 ```bash
+cp .env.example .env.local
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Before launch (Danni)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Set `NEXT_PUBLIC_PHONE_NUMBER`, `NEXT_PUBLIC_PHONE_TEL`, SMS equivalents, `LEAD_EMAIL`, `NEXT_PUBLIC_LICENSE_NUMBER`
+2. Add `RESEND_API_KEY` + verified `RESEND_FROM_EMAIL` so leads email out
+3. Drop real project photos into `public/gallery/{outdoor,interior,electrical}/` (update `src/lib/gallery.ts` alts/titles as needed)
+4. Confirm FAQ TODOs: permits, typical start time
+5. Optional: Google Reviews URL, referral stat, workmanship warranty term
+6. Deploy to Vercel and point the domain
 
-## Learn More
+## Gallery drop-in
 
-To learn more about Next.js, take a look at the following resources:
+```
+public/gallery/outdoor/*.jpg
+public/gallery/interior/*.jpg
+public/gallery/electrical/*.jpg
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Register new files in `src/lib/gallery.ts` (and `serviceImages` if replacing category cards).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Lead form test
 
-## Deploy on Vercel
+Submit the form on `/#contact`, then confirm a new line in `data/leads.jsonl`. With Resend configured, also confirm the inbox.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design tokens
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Token    | Hex     | Use                          |
+|----------|---------|------------------------------|
+| charcoal | #1C1B19 | Primary dark                 |
+| timber   | #5C4430 | Warm structural accent       |
+| iron     | #3E4C46 | Secondary trust accent       |
+| brass    | #B08D57 | CTA / highlight (sparingly)  |
+| bone     | #F5F1EA | Background                   |
+| slate    | #7A7670 | Muted body text              |
