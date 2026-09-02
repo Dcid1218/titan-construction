@@ -1,4 +1,3 @@
-import { siteConfig } from "@/lib/site-config";
 
 const facts = [
   {
