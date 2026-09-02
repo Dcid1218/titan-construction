@@ -11,7 +11,7 @@ export function Header() {
           href="/"
           className="font-display text-xl font-semibold tracking-tight text-bone sm:text-2xl"
         >
-          Titan Construction
+          Titan Construction &amp; Electric
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-bone/90 md:flex">
           <a href="#services" className="hover:text-brass">

@@ -4,16 +4,15 @@ import { FormEvent, useState } from "react";
 import { siteConfig, telHref } from "@/lib/site-config";
 
 const serviceOptions = [
-  "Outdoor Living & Carpentry — Porches",
-  "Outdoor Living & Carpentry — Decks",
-  "Outdoor Living & Carpentry — Pergolas",
-  "Outdoor Living & Carpentry — General carpentry",
-  "Interior Remodeling — Kitchen",
-  "Interior Remodeling — Bathroom",
-  "Interior Remodeling — Tile work",
-  "Electrical — Panel upgrade",
-  "Electrical — Full residential electrical",
-  "Not sure / multiple",
+  "Residential Electrical Services",
+  "Commercial Electrical Services & Build-Outs",
+  "Electrical Panel Upgrade",
+  "Outdoor Living — Decks & Porches",
+  "Outdoor Living — Pergolas & Custom Builds",
+  "Indoor Remodeling — Kitchen & Bath",
+  "Indoor Remodeling — Custom Tiling",
+  "Turnkey Remodeling / Construction",
+  "Other / Multiple Services",
 ] as const;
 
 const timelines = ["ASAP", "This month", "Just planning"] as const;

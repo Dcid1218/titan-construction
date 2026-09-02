@@ -9,32 +9,32 @@ export function JsonLd() {
 
   const data = {
     "@context": "https://schema.org",
-    "@type": ["GeneralContractor", "LocalBusiness"],
+    "@type": ["GeneralContractor", "Electrician", "LocalBusiness"],
     name: siteConfig.name,
+    legalName: "Titan Construction & Electric LLC",
     description:
-      "Residential general contracting, remodeling, and electrical services in Kendall County, IL. Porches, decks, pergolas, kitchens, bathrooms, tile, and electrical panel upgrades.",
+      "Licensed & bonded commercial and residential electrical services, outdoor construction (decks, porches, pergolas), and indoor remodeling (kitchens, bathrooms, tiling) based in Kendall County, IL serving Northern, Western, and Chicago suburbs. Est. 2022, over 30 years experience.",
     url: siteConfig.url,
-    telephone: siteConfig.phoneTel
-      ? `+1${siteConfig.phoneTel.replace(/^1/, "")}`
-      : undefined,
+    telephone: `+1${siteConfig.phoneTel}`,
+    email: siteConfig.leadEmail,
     areaServed: [
       {
         "@type": "AdministrativeArea",
-        name: siteConfig.serviceArea.county,
+        name: siteConfig.serviceArea.base,
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: siteConfig.serviceArea.region,
       },
       ...siteConfig.serviceArea.towns.map((town) => ({
         "@type": "City",
         name: town,
-        containedInPlace: {
-          "@type": "AdministrativeArea",
-          name: "Kendall County, IL",
-        },
       })),
     ],
     knowsAbout: services,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Titan Construction Services",
+      name: "Titan Construction & Electric Services",
       itemListElement: [
         siteConfig.services.outdoor,
         siteConfig.services.interior,
@@ -56,7 +56,7 @@ export function JsonLd() {
       "@type": "PostalAddress",
       addressRegion: "IL",
       addressCountry: "US",
-      addressLocality: "Yorkville",
+      addressLocality: "Kendall County",
     },
   };
 

@@ -59,13 +59,12 @@ export function Services() {
           })}
         </div>
 
-        <aside className="mt-12 border-l-4 border-iron bg-iron/5 px-6 py-5">
+        <aside className="mt-12 border-l-4 border-brass bg-brass/10 px-6 py-5 rounded-sm">
           <h3 className="font-display text-lg font-semibold text-charcoal">
-            What we don&apos;t do
+            The Titan Start-to-Finish Promise
           </h3>
-          <p className="mt-2 max-w-3xl text-base leading-relaxed text-charcoal/80">
-            Drywall, plumbing, concrete, and stone patios aren&apos;t our trade
-            — we&apos;ll say so upfront instead of taking the job anyway.
+          <p className="mt-2 max-w-3xl text-base leading-relaxed text-charcoal/90">
+            Whether it&apos;s a residential electrical upgrade, custom deck build, or commercial remodeling project, we manage every step from concept to cleanup. Upfront pricing, clear timelines, and zero hidden fees — client satisfaction is always #1.
           </p>
         </aside>
 

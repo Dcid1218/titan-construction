@@ -2,7 +2,6 @@ import Link from "next/link";
 import { siteConfig, telHref } from "@/lib/site-config";
 
 export function Footer() {
-  const callReady = Boolean(siteConfig.phoneTel);
   const year = new Date().getFullYear();
 
   return (
@@ -11,34 +10,39 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <p className="font-display text-2xl font-semibold">
-              Titan Construction
+              {siteConfig.name}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-bone/75">
-              Residential general contracting, remodeling, and electrical —
-              Kendall County, IL. {siteConfig.yearsExperience} years.
+              Commercial &amp; Residential Electrical, Outdoor &amp; Indoor Remodeling &amp; Construction — Est. {siteConfig.establishedYear}. Over {siteConfig.yearsExperience} years of trade experience.
             </p>
             <p className="mt-4 text-sm text-bone/70">
               License: {siteConfig.licenseNumber}
             </p>
-            {callReady ? (
-              <a
-                href={telHref()}
-                className="mt-4 inline-block text-brass hover:underline"
-              >
-                {siteConfig.phoneDisplay}
-              </a>
-            ) : (
-              <p className="mt-4 text-sm text-bone/60">
-                Phone: {siteConfig.phoneDisplay}
+            <div className="mt-4 space-y-1 text-sm">
+              <p>
+                <a href={telHref()} className="text-brass hover:underline">
+                  Phone: {siteConfig.phoneDisplay}
+                </a>
               </p>
-            )}
+              <p>
+                <a href={`mailto:${siteConfig.leadEmail}`} className="text-brass hover:underline">
+                  Email: {siteConfig.leadEmail}
+                </a>
+              </p>
+            </div>
           </div>
 
           <div>
             <p className="text-xs font-medium uppercase tracking-label text-brass">
               Service area
             </p>
-            <ul className="mt-3 space-y-1 text-sm text-bone/80">
+            <p className="mt-2 text-sm text-bone/90 font-medium">
+              Based out of {siteConfig.serviceArea.base}
+            </p>
+            <p className="mt-1 text-xs text-bone/70">
+              Serving {siteConfig.serviceArea.region}
+            </p>
+            <ul className="mt-3 grid grid-cols-2 gap-1 text-sm text-bone/80">
               {siteConfig.serviceArea.towns.map((town) => (
                 <li key={town}>{town}</li>
               ))}
@@ -67,7 +71,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#contact" className="hover:text-brass">
-                  Free quote
+                  Upfront quote
                 </a>
               </li>
               <li>
@@ -76,17 +80,14 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-            <p className="mt-6 text-sm leading-relaxed text-bone/70">
-              What we don&apos;t do: drywall, plumbing, concrete, and stone
-              patios. We&apos;ll say so upfront instead of taking the job
-              anyway.
+            <p className="mt-6 text-sm leading-relaxed text-bone/70 border-l-2 border-brass/40 pl-3">
+              Upfront pricing. Client comes first. Turnkey execution from start to finish on every commercial and residential project.
             </p>
           </div>
         </div>
 
         <p className="mt-12 border-t border-bone/10 pt-6 text-xs text-bone/50">
-          © {year} Titan Construction. Licensed &amp; bonded. Serving{" "}
-          {siteConfig.serviceArea.county}.
+          © {year} {siteConfig.name}. Licensed &amp; Bonded. Based in Kendall County, IL.
         </p>
       </div>
     </footer>

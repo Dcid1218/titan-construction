@@ -4,8 +4,9 @@ export function ServiceArea() {
   return (
     <section id="service-area" className="section-pad bg-iron text-bone">
       <div className="mx-auto max-w-content">
+        <p className="label-eyebrow-on-dark mb-2">Coverage area</p>
         <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-          Proudly serving Kendall County
+          Based out of Kendall County, serving Northern, Western &amp; Chicago Suburbs
         </h2>
         <ul className="mt-8 flex flex-wrap gap-3">
           {siteConfig.serviceArea.towns.map((town) => (
@@ -18,8 +19,7 @@ export function ServiceArea() {
           ))}
         </ul>
         <p className="mt-8 max-w-2xl text-base leading-relaxed text-bone/85">
-          Not sure if you&apos;re in range? Call — if we can get there, we&apos;ll
-          take the job.
+          We handle residential &amp; commercial jobs across the entire Chicagoland area. Not sure if your project location is covered? Call us at {siteConfig.phoneDisplay} — we handle jobs across all surrounding suburbs.
         </p>
       </div>
     </section>

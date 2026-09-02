@@ -1,41 +1,44 @@
 /**
- * Titan Construction — site configuration.
- * Fill PHONE_NUMBER, SMS_NUMBER, LEAD_EMAIL, and LICENSE_NUMBER before launch.
- * Prefer env vars in production; these constants are the single source of truth in code.
+ * Titan Construction & Electric LLC — site configuration.
+ * Single source of truth for business details, fallback contact info, and services.
  */
 
 export const siteConfig = {
-  name: "Titan Construction",
-  trade: "Residential general contracting / remodeling / electrical",
+  name: "Titan Construction & Electric LLC",
+  shortName: "Titan Construction & Electric",
+  owner: "Ryan",
+  establishedYear: 2022,
   yearsExperience: 30,
-  /** Replace via LICENSE_NUMBER env or here before launch */
+  trade: "Residential & Commercial Electrical, Remodeling, and Construction",
   licenseNumber:
-    process.env.NEXT_PUBLIC_LICENSE_NUMBER?.trim() || "IL-LIC-#XXXXXX",
+    process.env.NEXT_PUBLIC_LICENSE_NUMBER?.trim() || "Licensed & Bonded",
   phoneDisplay:
-    process.env.NEXT_PUBLIC_PHONE_NUMBER?.trim() || "[PHONE]",
+    process.env.NEXT_PUBLIC_PHONE_NUMBER?.trim() || "630-487-8995",
   phoneTel:
     process.env.NEXT_PUBLIC_PHONE_TEL?.trim() ||
     process.env.NEXT_PUBLIC_PHONE_NUMBER?.replace(/\D/g, "") ||
-    "",
+    "6304878995",
   smsDisplay:
     process.env.NEXT_PUBLIC_SMS_NUMBER?.trim() ||
     process.env.NEXT_PUBLIC_PHONE_NUMBER?.trim() ||
-    "[PHONE]",
+    "630-487-8995",
   smsTel:
     process.env.NEXT_PUBLIC_SMS_TEL?.trim() ||
     process.env.NEXT_PUBLIC_PHONE_TEL?.trim() ||
     process.env.NEXT_PUBLIC_SMS_NUMBER?.replace(/\D/g, "") ||
     process.env.NEXT_PUBLIC_PHONE_NUMBER?.replace(/\D/g, "") ||
-    "",
-  leadEmail: process.env.LEAD_EMAIL?.trim() || "",
-  /** Optional: set when Danni confirms a written workmanship warranty term */
-  workmanshipWarranty: process.env.NEXT_PUBLIC_WORKMANSHIP_WARRANTY?.trim() || "",
-  /** Optional: real referral/repeat stat only — leave empty rather than invent */
-  referralStat: process.env.NEXT_PUBLIC_REFERRAL_STAT?.trim() || "",
-  /** Optional Google Business Profile place ID / reviews embed URL */
-  googleReviewsUrl: process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL?.trim() || "",
+    "6304878995",
+  leadEmail:
+    process.env.LEAD_EMAIL?.trim() || "titanelectric222@gmail.com",
+  workmanshipWarranty:
+    process.env.NEXT_PUBLIC_WORKMANSHIP_WARRANTY?.trim() || "",
+  referralStat:
+    process.env.NEXT_PUBLIC_REFERRAL_STAT?.trim() || "",
+  googleReviewsUrl:
+    process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL?.trim() || "",
   serviceArea: {
-    county: "Kendall County, IL",
+    base: "Kendall County, IL",
+    region: "Northern, Western & Chicago Suburbs",
     towns: [
       "Yorkville",
       "Oswego",
@@ -43,44 +46,53 @@ export const siteConfig = {
       "Plainfield",
       "Sugar Grove",
       "Montgomery",
+      "Aurora",
+      "Naperville",
+      "Joliet",
+      "Chicago & Surrounding Suburbs",
     ] as const,
   },
-  exclusions: [
-    "Drywall",
-    "Plumbing",
-    "Concrete",
-    "Stone patios",
+  valueProps: [
+    "Upfront Pricing",
+    "Client Comes First",
+    "Start-to-Finish Management",
+    "Licensed & Bonded",
+    "Commercial & Residential",
+    "Over 30 Years Experience",
   ] as const,
   services: {
     outdoor: {
       id: "outdoor",
-      label: "Outdoor Living & Carpentry",
+      label: "Outdoor Living & Construction",
       items: [
-        "Porches",
-        "Decks",
-        "Pergolas",
-        "General carpentry, indoor and outdoor",
+        "Custom Decks & Porches",
+        "Pergolas & Outdoor Structures",
+        "Custom Carpentry (Indoor & Outdoor)",
+        "Custom Outdoor Builds",
       ],
     },
     interior: {
       id: "interior",
-      label: "Interior Remodeling",
+      label: "Indoor Remodeling & Tiling",
       items: [
-        "Kitchen remodels & upgrades",
-        "Bathroom remodels & upgrades",
-        "Tile work",
+        "Kitchen Remodels & Upgrades",
+        "Bathroom Remodels & Upgrades",
+        "Custom Tiling & Tile Work",
+        "Turnkey Interior Remodeling",
       ],
     },
     electrical: {
       id: "electrical",
-      label: "Electrical",
+      label: "Electrical Services (Residential & Commercial)",
       items: [
-        "Electrical panel upgrades",
-        "Full residential electrical services (repair, installation, upgrades)",
+        "Residential Electrical Services (Repair & Upgrades)",
+        "Commercial Electrical Services & Build-Outs",
+        "Electrical Panel Upgrades & Circuit Additions",
+        "Start-to-Finish Electrical Installations",
       ],
     },
   },
-  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://titan-construction.example",
+  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://titan-construction-electric.com",
   seasonalUrgency: getSeasonalUrgency(),
 } as const;
 
@@ -88,14 +100,14 @@ function getSeasonalUrgency(): string {
   const month = new Date().getMonth(); // 0–11
   // Winter focus: Dec–Feb
   if (month === 11 || month <= 1) {
-    return "Panel upgrades and interior remodels are our winter focus — good time to get on the schedule before spring books solid.";
+    return "Winter is prime time for electrical panel upgrades, commercial work, and interior remodels — call early to reserve your project start date.";
   }
   // Spring/summer: Mar–Aug
   if (month >= 2 && month <= 7) {
-    return "Deck and pergola season books up fast — the earlier you call, the more start dates you have to choose from.";
+    return "Outdoor living season books up fast! Decks, porches, and custom builds are scheduling now across Kendall County and Chicago suburbs.";
   }
   // Fall: Sep–Nov
-  return "Fall is a strong window for decks, porches, and interior work before winter weather sets in — call early for the start dates you want.";
+  return "Fall is an ideal window for custom builds, decks, and interior remodeling before winter — contact us for upfront pricing today.";
 }
 
 export function telHref(): string {

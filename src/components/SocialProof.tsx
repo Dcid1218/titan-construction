@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 /**
  * PLACEHOLDER TESTIMONIALS — not real reviews.
  * Do not ship these as if they were authentic customer quotes.
- * Replace with Google Reviews embed once Danni provides GBP link/ID,
+ * Replace with Google Reviews embed once Ryan provides GBP link/ID,
  * or delete this interim block entirely.
  */
 const PLACEHOLDER_TESTIMONIALS = [

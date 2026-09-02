@@ -23,16 +23,16 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Titan Construction | Decks, Remodels & Electrical — Kendall County, IL",
-    template: "%s | Titan Construction",
+    default: "Titan Construction & Electric LLC | Commercial & Residential Remodeling & Electrical",
+    template: "%s | Titan Construction & Electric LLC",
   },
   description:
-    "Licensed & bonded residential contractor in Kendall County, IL. Porches, decks, pergolas, kitchen & bathroom remodels, tile, and electrical panel upgrades. 30 years. One call.",
+    "Titan Construction & Electric LLC — Licensed & Bonded in Kendall County, IL, serving Northern, Western & Chicago Suburbs. Commercial & Residential Electrical, Decks, Porches, Tiling & Remodeling. Est. 2022 | 30+ Years Experience. Call 630-487-8995.",
   metadataBase: new URL(siteConfig.url),
   openGraph: {
-    title: "Titan Construction — Done once, done right",
+    title: "Titan Construction & Electric LLC — Upfront Pricing, Client First",
     description:
-      "Porches, remodels, and electrical work for Kendall County homeowners. 30 years. Licensed & bonded.",
+      "Commercial & Residential Electrical, Remodeling & Construction across Kendall County & Chicago Suburbs. Upfront pricing, start to finish.",
     type: "website",
     locale: "en_US",
   },

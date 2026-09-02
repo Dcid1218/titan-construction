@@ -1,9 +1,10 @@
 import { siteConfig } from "@/lib/site-config";
 
 const facts = [
-  `${siteConfig.yearsExperience} Years`,
+  `Est. ${siteConfig.establishedYear} · Over ${siteConfig.yearsExperience} Yrs Exp`,
   "Licensed & Bonded",
-  "Kendall County Local",
+  "Commercial & Residential",
+  "Upfront Pricing",
 ] as const;
 
 export function CredentialsBar() {
