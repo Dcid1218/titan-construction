@@ -11,7 +11,7 @@ export function Header() {
           href="/"
           className="font-display text-xl font-semibold tracking-tight text-titan-silver sm:text-2xl flex items-center gap-3"
         >
-          <img src="/logo.png" alt="Titan Construction & Electric" className="h-12 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          <img src="/logo.png" alt="Titan Construction & Electric" className="h-12 w-auto object-contain" />
           <span className="hidden sm:inline-block">Titan Construction &amp; Electric</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-titan-silver/90 md:flex">
