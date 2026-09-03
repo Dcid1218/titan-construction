@@ -59,22 +59,22 @@ export function LeadForm() {
   }
 
   return (
-    <section id="contact" className="section-pad scroll-mt-8 bg-bone">
+    <section id="contact" className="section-pad scroll-mt-8 bg-titan-black">
       <div className="mx-auto grid max-w-content gap-12 lg:grid-cols-2 lg:items-start">
         <div>
           <p className="label-eyebrow">Free quote</p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-charcoal sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
             Get a free quote — no obligation
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-slate">
+          <p className="mt-4 text-lg leading-relaxed text-titan-silver/80">
             Tell us what you need. We&apos;ll call you back, usually the same
             day, and give it to you straight — including if it&apos;s not a fit.
           </p>
-          <p className="mt-6 border-l-4 border-brass pl-4 text-base font-medium text-charcoal">
+          <p className="mt-6 border-l-4 border-brass pl-4 text-base font-medium text-titan-silver">
             {siteConfig.seasonalUrgency}
           </p>
           {callReady ? (
-            <p className="mt-8 text-base text-slate">
+            <p className="mt-8 text-base text-titan-silver/80">
               Prefer to talk now?{" "}
               <a
                 href={telHref()}
@@ -86,10 +86,10 @@ export function LeadForm() {
           ) : null}
         </div>
 
-        <div className="rounded-sm border border-charcoal/10 bg-white p-6 shadow-soft sm:p-8">
+        <div className="rounded-sm border border-titan-black/10 bg-titan-blue-dark p-6 shadow-soft sm:p-8">
           {status === "success" ? (
             <div role="status" className="py-8 text-center">
-              <p className="font-display text-2xl font-semibold text-charcoal">
+              <p className="font-display text-2xl font-semibold text-titan-silver">
                 Got it — we&apos;ll call you back today.
               </p>
               <button
@@ -103,7 +103,7 @@ export function LeadForm() {
           ) : (
             <form onSubmit={onSubmit} className="space-y-5" noValidate>
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-charcoal">
+                <label htmlFor="name" className="block text-sm font-semibold text-titan-silver">
                   Name
                 </label>
                 <input
@@ -111,12 +111,12 @@ export function LeadForm() {
                   name="name"
                   required
                   autoComplete="name"
-                  className="mt-1.5 w-full rounded-sm border border-charcoal/20 bg-bone px-3 py-3 text-charcoal outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-charcoal">
+                <label htmlFor="phone" className="block text-sm font-semibold text-titan-silver">
                   Phone
                 </label>
                 <input
@@ -125,12 +125,12 @@ export function LeadForm() {
                   type="tel"
                   required
                   autoComplete="tel"
-                  className="mt-1.5 w-full rounded-sm border border-charcoal/20 bg-bone px-3 py-3 text-charcoal outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-semibold text-charcoal">
+                <label htmlFor="service" className="block text-sm font-semibold text-titan-silver">
                   Service needed
                 </label>
                 <select
@@ -138,7 +138,7 @@ export function LeadForm() {
                   name="service"
                   required
                   defaultValue=""
-                  className="mt-1.5 w-full rounded-sm border border-charcoal/20 bg-bone px-3 py-3 text-charcoal outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
                 >
                   <option value="" disabled>
                     Select a service
@@ -152,7 +152,7 @@ export function LeadForm() {
               </div>
 
               <div>
-                <label htmlFor="location" className="block text-sm font-semibold text-charcoal">
+                <label htmlFor="location" className="block text-sm font-semibold text-titan-silver">
                   Property city or ZIP
                 </label>
                 <input
@@ -160,12 +160,12 @@ export function LeadForm() {
                   name="location"
                   required
                   autoComplete="address-level2"
-                  className="mt-1.5 w-full rounded-sm border border-charcoal/20 bg-bone px-3 py-3 text-charcoal outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
                 />
               </div>
 
               <div>
-                <label htmlFor="timeline" className="block text-sm font-semibold text-charcoal">
+                <label htmlFor="timeline" className="block text-sm font-semibold text-titan-silver">
                   Project timeline
                 </label>
                 <select
@@ -173,7 +173,7 @@ export function LeadForm() {
                   name="timeline"
                   required
                   defaultValue=""
-                  className="mt-1.5 w-full rounded-sm border border-charcoal/20 bg-bone px-3 py-3 text-charcoal outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
                 >
                   <option value="" disabled>
                     When are you looking to start?
@@ -187,7 +187,7 @@ export function LeadForm() {
               </div>
 
               <div>
-                <label htmlFor="photo" className="block text-sm font-semibold text-charcoal">
+                <label htmlFor="photo" className="block text-sm font-semibold text-titan-silver">
                   Project photo (optional)
                 </label>
                 <input
@@ -195,9 +195,9 @@ export function LeadForm() {
                   name="photo"
                   type="file"
                   accept="image/*"
-                  className="mt-1.5 w-full text-sm text-slate file:mr-3 file:rounded-sm file:border-0 file:bg-charcoal file:px-3 file:py-2 file:text-sm file:font-semibold file:text-bone"
+                  className="mt-1.5 w-full text-sm text-titan-silver/80 file:mr-3 file:rounded-sm file:border-0 file:bg-titan-blue-dark file:px-3 file:py-2 file:text-sm file:font-semibold file:text-titan-silver"
                 />
-                <p className="mt-1.5 text-sm text-slate">
+                <p className="mt-1.5 text-sm text-titan-silver/80">
                   A photo helps us quote faster — totally optional.
                 </p>
               </div>
@@ -212,7 +212,7 @@ export function LeadForm() {
                   : "Request My Free Quote"}
               </button>
 
-              <p className="text-center text-sm text-slate">
+              <p className="text-center text-sm text-titan-silver/80">
                 No spam. No pushy sales calls. Just a straight answer.
               </p>
 

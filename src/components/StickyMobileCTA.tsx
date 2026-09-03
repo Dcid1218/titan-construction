@@ -26,7 +26,7 @@ export function StickyMobileCTA() {
   if (hiddenNearForm) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-charcoal/15 bg-bone/95 p-3 backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-titan-black/15 bg-titan-black/95 p-3 backdrop-blur md:hidden">
       <div className="mx-auto flex max-w-content gap-2">
         <a
           href={callReady ? telHref() : "#contact"}

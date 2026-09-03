@@ -11,15 +11,15 @@ export function CredentialsBar() {
   return (
     <section
       aria-label="Credentials"
-      className="border-b border-charcoal/10 bg-bone"
+      className="border-b border-titan-black/10 bg-titan-black"
     >
       <div className="mx-auto flex max-w-content flex-col items-stretch justify-center gap-0 px-5 sm:flex-row sm:items-center sm:justify-center sm:gap-0 sm:px-8 lg:px-12">
         {facts.map((fact, i) => (
           <div
             key={fact}
-            className="flex flex-1 items-center justify-center border-b border-charcoal/10 px-4 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:border-brass/50 sm:last:border-r-0"
+            className="flex flex-1 items-center justify-center border-b border-titan-black/10 px-4 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:border-brass/50 sm:last:border-r-0"
           >
-            <p className="text-center font-sans text-xs font-medium uppercase tracking-label text-charcoal sm:text-[0.7rem]">
+            <p className="text-center font-sans text-xs font-medium uppercase tracking-label text-titan-silver sm:text-[0.7rem]">
               {fact}
             </p>
             {i < facts.length - 1 ? (

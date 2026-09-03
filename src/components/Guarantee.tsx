@@ -6,13 +6,13 @@ export function Guarantee() {
     : "Titan Construction & Electric LLC is licensed, bonded, and backed by over 30 years of trade expertise across Kendall County and Chicago suburbs. Upfront pricing, turnkey delivery, and client satisfaction guaranteed.";
 
   return (
-    <section id="guarantee" className="section-pad bg-bone">
+    <section id="guarantee" className="section-pad bg-titan-black">
       <div className="mx-auto max-w-3xl text-center">
         <p className="label-eyebrow">Our promise</p>
-        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-charcoal sm:text-4xl">
+        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
           Licensed &amp; Bonded. Upfront Pricing. Client Comes First.
         </h2>
-        <p className="mt-6 text-lg leading-relaxed text-slate">
+        <p className="mt-6 text-lg leading-relaxed text-titan-silver/80">
           {referralLine}
         </p>
         {siteConfig.workmanshipWarranty ? (

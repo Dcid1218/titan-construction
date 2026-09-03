@@ -23,10 +23,10 @@ export function Gallery() {
   }, [filter]);
 
   return (
-    <section id="gallery" className="section-pad bg-bone">
+    <section id="gallery" className="section-pad bg-titan-black">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">Recent work</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-charcoal sm:text-4xl">
+        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
           See the work before you call.
         </h2>
 
@@ -46,8 +46,8 @@ export function Gallery() {
                 onClick={() => setFilter(f.id)}
                 className={`rounded-sm px-4 py-2 text-sm font-semibold transition ${
                   active
-                    ? "bg-charcoal text-bone"
-                    : "bg-white text-charcoal ring-1 ring-charcoal/15 hover:ring-charcoal/30"
+                    ? "bg-titan-blue-dark text-titan-silver"
+                    : "bg-titan-blue-dark text-titan-silver ring-1 ring-charcoal/15 hover:ring-charcoal/30"
                 }`}
               >
                 {f.label}
@@ -60,7 +60,7 @@ export function Gallery() {
           {items.map((item) => (
             <li
               key={item.src}
-              className="overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-soft"
+              className="overflow-hidden rounded-sm border border-titan-black/10 bg-titan-blue-dark shadow-soft"
             >
               <div className="relative aspect-[4/3]">
                 <Image
@@ -73,10 +73,10 @@ export function Gallery() {
                 />
               </div>
               <div className="px-4 py-3">
-                <p className="text-xs font-medium uppercase tracking-label text-slate">
+                <p className="text-xs font-medium uppercase tracking-label text-titan-silver/80">
                   {item.category}
                 </p>
-                <p className="mt-1 font-medium text-charcoal">{item.title}</p>
+                <p className="mt-1 font-medium text-titan-silver">{item.title}</p>
               </div>
             </li>
           ))}

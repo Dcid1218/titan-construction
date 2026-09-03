@@ -26,15 +26,15 @@ const PLACEHOLDER_TESTIMONIALS = [
 
 export function SocialProof() {
   return (
-    <section id="reviews" className="section-pad bg-white">
+    <section id="reviews" className="section-pad bg-titan-blue-dark">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">What neighbors say</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-charcoal sm:text-4xl">
+        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
           Local reputation, not marketing fluff.
         </h2>
 
         {siteConfig.googleReviewsUrl ? (
-          <div className="mt-10 overflow-hidden rounded-sm border border-charcoal/10 bg-bone p-4">
+          <div className="mt-10 overflow-hidden rounded-sm border border-titan-black/10 bg-titan-black p-4">
             {/* Wire real Google Reviews embed / iframe when GBP is connected */}
             <iframe
               title="Google Reviews for Titan Construction"
@@ -45,7 +45,7 @@ export function SocialProof() {
           </div>
         ) : (
           <>
-            <p className="mt-4 max-w-2xl text-base text-slate">
+            <p className="mt-4 max-w-2xl text-base text-titan-silver/80">
               Google Reviews embed will appear here once a Google Business
               Profile link is connected. Until then, these are clearly marked
               placeholders — not real reviews.
@@ -54,15 +54,15 @@ export function SocialProof() {
               {PLACEHOLDER_TESTIMONIALS.map((t) => (
                 <li
                   key={t.attribution}
-                  className="rounded-sm border border-dashed border-timber/40 bg-bone/60 p-6"
+                  className="rounded-sm border border-dashed border-timber/40 bg-titan-black/60 p-6"
                 >
                   <p className="mb-3 text-xs font-semibold uppercase tracking-label text-timber">
                     Placeholder — not a real review
                   </p>
-                  <blockquote className="font-display text-lg leading-snug text-charcoal">
+                  <blockquote className="font-display text-lg leading-snug text-titan-silver">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
-                  <p className="mt-4 text-sm font-medium text-charcoal/80">
+                  <p className="mt-4 text-sm font-medium text-titan-silver/80">
                     {t.attribution}
                   </p>
                 </li>

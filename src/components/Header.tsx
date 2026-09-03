@@ -9,21 +9,22 @@ export function Header() {
       <div className="mx-auto flex max-w-content items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="font-display text-xl font-semibold tracking-tight text-bone sm:text-2xl"
+          className="font-display text-xl font-semibold tracking-tight text-titan-silver sm:text-2xl flex items-center gap-3"
         >
-          Titan Construction &amp; Electric
+          <img src="/logo.png" alt="Titan Construction & Electric" className="h-12 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          <span className="hidden sm:inline-block">Titan Construction &amp; Electric</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm font-medium text-bone/90 md:flex">
-          <a href="#services" className="hover:text-brass">
+        <nav className="hidden items-center gap-8 text-sm font-medium text-titan-silver/90 md:flex">
+          <a href="#services" className="hover:text-titan-gold transition-colors hover:shadow-[0_0_10px_rgba(0,229,255,0.4)] px-2 py-1 rounded">
             Services
           </a>
-          <a href="#gallery" className="hover:text-brass">
+          <a href="#gallery" className="hover:text-titan-gold transition-colors hover:shadow-[0_0_10px_rgba(0,229,255,0.4)] px-2 py-1 rounded">
             Work
           </a>
-          <a href="#faq" className="hover:text-brass">
+          <a href="#faq" className="hover:text-titan-gold transition-colors hover:shadow-[0_0_10px_rgba(0,229,255,0.4)] px-2 py-1 rounded">
             FAQ
           </a>
-          <a href="#contact" className="hover:text-brass">
+          <a href="#contact" className="hover:text-titan-gold transition-colors hover:shadow-[0_0_10px_rgba(0,229,255,0.4)] px-2 py-1 rounded">
             Quote
           </a>
           {callReady ? (

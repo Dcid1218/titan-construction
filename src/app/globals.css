@@ -11,39 +11,38 @@ html {
 }
 
 body {
-  @apply bg-bone text-charcoal font-sans antialiased;
+  @apply bg-titan-black text-titan-silver font-sans antialiased;
 }
 
 /* Visible keyboard focus — WCAG AA floor */
 :focus-visible {
-  outline: 2px solid #b08d57;
+  outline: 2px solid #00E5FF;
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(176, 141, 87, 0.35);
+  background: rgba(0, 229, 255, 0.35);
 }
 
 @layer components {
   .label-eyebrow {
-    /* Timber (not brass) on light surfaces — brass fails AA at 12px */
-    @apply font-sans text-xs font-semibold uppercase tracking-label text-timber;
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-titan-silver;
   }
 
   .label-eyebrow-on-dark {
-    @apply font-sans text-xs font-semibold uppercase tracking-label text-brass;
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-titan-gold;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-brass px-6 py-3.5 text-base font-semibold text-charcoal transition hover:bg-[#c49a62] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-titan-gold px-6 py-3.5 text-base font-semibold text-titan-black transition hover:bg-[#b58c5c] hover:shadow-[0_0_15px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-charcoal/20 bg-bone/90 px-6 py-3.5 text-base font-semibold text-charcoal transition hover:border-charcoal/40 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-titan-silver/20 bg-titan-blue-dark/90 px-6 py-3.5 text-base font-semibold text-titan-silver transition hover:border-electric-blue/50 hover:bg-titan-blue-dark hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
   }
 
   .btn-call {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-charcoal px-6 py-3.5 text-base font-semibold text-bone transition hover:bg-timber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-electric-blue px-6 py-3.5 text-base font-semibold text-titan-black transition hover:bg-[#00cce6] hover:shadow-[0_0_20px_rgba(0,229,255,0.8)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-gold;
   }
 
   .section-pad {

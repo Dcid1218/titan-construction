@@ -9,12 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        "titan-black": "#0A0A0C",
+        "titan-blue-dark": "#0B1528",
+        "titan-gold": "#C69C6D",
+        "titan-silver": "#D1D5DB",
+        "electric-blue": "#00E5FF",
         charcoal: "#1C1B19",
         timber: "#5C4430",
         iron: "#3E4C46",
         brass: "#B08D57",
         bone: "#F5F1EA",
-        // Darker muted body color so WCAG AA passes on bone/white
         slate: "#5A5650",
       },
       fontFamily: {
