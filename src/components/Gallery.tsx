@@ -46,7 +46,7 @@ export function Gallery() {
                 onClick={() => setFilter(f.id)}
                 className={`rounded-sm px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] transition-all ${
                   active
-                    ? "border border-electric-blue bg-electric-blue text-titan-black"
+                    ? "border border-titan-gold bg-titan-gold text-titan-black"
                     : "border border-brass/25 bg-white/[0.03] text-titan-silver/70 hover:border-brass/45 hover:text-titan-silver"
                 }`}
               >
@@ -74,7 +74,7 @@ export function Gallery() {
                 />
               </div>
               <div className="px-4 py-3">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-electric-blue">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-titan-gold">
                   {item.category}
                 </p>
                 <p className="mt-1 font-medium text-titan-silver">{item.title}</p>

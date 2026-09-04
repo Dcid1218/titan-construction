@@ -50,13 +50,13 @@ export function FAQ() {
                 </span>
                 <span
                   aria-hidden
-                  className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-electric-blue/40 text-sm text-electric-blue group-open:hidden"
+                  className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-titan-gold/40 text-sm text-titan-gold group-open:hidden"
                 >
                   +
                 </span>
                 <span
                   aria-hidden
-                  className="mt-0.5 hidden h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-electric-blue/40 text-sm text-electric-blue group-open:flex"
+                  className="mt-0.5 hidden h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-titan-gold/40 text-sm text-titan-gold group-open:flex"
                 >
                   −
                 </span>

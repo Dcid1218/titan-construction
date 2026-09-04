@@ -33,7 +33,7 @@ export function QuickPicker() {
               <button
                 type="button"
                 onClick={() => selectService(p.value)}
-                className="inline-flex items-center gap-2 rounded-sm border border-brass/30 bg-titan-blue-dark px-5 py-3 text-sm font-semibold text-titan-silver/90 shadow-soft transition-all hover:border-electric-blue hover:text-electric-blue"
+                className="inline-flex items-center gap-2 rounded-sm border border-brass/30 bg-titan-blue-dark px-5 py-3 text-sm font-semibold text-titan-silver/90 shadow-soft transition-all hover:border-titan-gold hover:text-titan-gold"
               >
                 {p.label}
                 <span aria-hidden className="opacity-60">

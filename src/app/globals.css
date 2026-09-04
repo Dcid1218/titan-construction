@@ -16,12 +16,12 @@ body {
 
 /* Visible keyboard focus — WCAG AA floor */
 :focus-visible {
-  outline: 2px solid #00e5ff;
+  outline: 2px solid #c69c6d;
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(0, 229, 255, 0.35);
+  background: rgba(198, 156, 109, 0.35);
 }
 
 @layer components {
@@ -34,15 +34,16 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-titan-gold px-6 py-3.5 text-base font-semibold text-titan-black shadow-soft transition hover:bg-[#b58c5c] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-titan-gold px-6 py-3.5 text-base font-semibold text-titan-black shadow-soft transition hover:bg-[#b58c5c] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-gold;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-titan-silver/20 bg-titan-blue-dark px-6 py-3.5 text-base font-semibold text-titan-silver transition hover:border-titan-gold/50 hover:bg-titan-blue-dark/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-titan-silver/20 bg-titan-blue-dark px-6 py-3.5 text-base font-semibold text-titan-silver transition hover:border-titan-gold/50 hover:bg-titan-blue-dark/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-gold;
   }
 
+  /* Copper — reserved for the "call now" action so it reads distinct from the gold primary/secondary buttons */
   .btn-call {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-electric-blue px-6 py-3.5 text-base font-semibold text-titan-black shadow-soft transition hover:bg-[#00cce6] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-gold;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-brass px-6 py-3.5 text-base font-semibold text-titan-black shadow-soft transition hover:bg-[#c9a26d] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-gold;
   }
 
   .section-pad {

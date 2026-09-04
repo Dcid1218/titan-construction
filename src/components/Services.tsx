@@ -33,7 +33,7 @@ export function Services() {
                   />
                   <div
                     aria-hidden
-                    className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-electric-blue/70 to-transparent"
+                    className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-titan-gold/70 to-transparent"
                   />
                 </div>
                 <div className="p-6">

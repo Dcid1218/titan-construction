@@ -12,7 +12,7 @@ export function ServiceArea() {
           {siteConfig.serviceArea.towns.map((town) => (
             <li
               key={town}
-              className="rounded-sm border border-titan-silver/25 bg-titan-black/10 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-colors hover:border-electric-blue/50 hover:text-electric-blue"
+              className="rounded-sm border border-titan-silver/25 bg-titan-black/10 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-colors hover:border-titan-gold/50 hover:text-titan-gold"
             >
               {town}
             </li>

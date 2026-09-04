@@ -25,12 +25,12 @@ export function Footer() {
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>
-                <a href={telHref()} className="text-titan-gold transition-colors hover:text-electric-blue hover:underline">
+                <a href={telHref()} className="text-titan-gold transition-colors hover:text-brass hover:underline">
                   Phone: {siteConfig.phoneDisplay}
                 </a>
               </p>
               <p>
-                <a href={`mailto:${siteConfig.leadEmail}`} className="text-titan-gold transition-colors hover:text-electric-blue hover:underline">
+                <a href={`mailto:${siteConfig.leadEmail}`} className="text-titan-gold transition-colors hover:text-brass hover:underline">
                   Email: {siteConfig.leadEmail}
                 </a>
               </p>

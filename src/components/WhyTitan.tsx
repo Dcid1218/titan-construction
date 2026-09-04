@@ -24,8 +24,8 @@ export function WhyTitan() {
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {facts.map((fact, i) => (
-            <div key={fact.title} className="card-glass border-t-2 border-t-electric-blue/50 p-8">
-              <p className="font-display text-xs font-bold tracking-[0.3em] text-electric-blue/75">
+            <div key={fact.title} className="card-glass border-t-2 border-t-titan-gold/50 p-8">
+              <p className="font-display text-xs font-bold tracking-[0.3em] text-titan-gold/75">
                 {String(i + 1).padStart(2, "0")}
               </p>
               <h3 className="mt-4 font-display text-2xl font-semibold text-titan-gold">

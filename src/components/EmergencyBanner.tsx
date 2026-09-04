@@ -4,11 +4,11 @@ export function EmergencyBanner() {
   return (
     <section
       aria-label="Electrical emergencies"
-      className="border-y border-electric-blue/25 bg-gradient-to-r from-electric-blue/10 via-titan-blue-dark/85 to-titan-black px-5 py-8 sm:px-8 sm:py-10 lg:px-12"
+      className="border-y border-titan-gold/25 bg-gradient-to-r from-titan-gold/10 via-titan-blue-dark/85 to-titan-black px-5 py-8 sm:px-8 sm:py-10 lg:px-12"
     >
       <div className="mx-auto flex max-w-content flex-wrap items-center justify-between gap-6">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-electric-blue">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-titan-gold">
             Electrical problem right now?
           </p>
           <p className="mt-2 max-w-xl font-display text-lg font-semibold leading-snug text-titan-silver sm:text-2xl">
