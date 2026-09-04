@@ -8,10 +8,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   @apply bg-titan-black text-titan-silver font-sans antialiased;
+  overflow-x: hidden;
 }
 
 /* Visible keyboard focus — WCAG AA floor */

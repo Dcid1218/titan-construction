@@ -22,7 +22,7 @@ export function WhyTitan() {
         <h2 className="text-titan-silver mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           Built for clients who expect upfront pricing and start-to-finish excellence.
         </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {facts.map((fact, i) => (
             <div key={fact.title} className="card-glass border-t-2 border-t-titan-gold/50 p-8">
               <p className="font-display text-xs font-bold tracking-[0.3em] text-titan-gold/75">

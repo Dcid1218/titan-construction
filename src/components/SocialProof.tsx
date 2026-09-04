@@ -50,7 +50,7 @@ export function SocialProof() {
               Profile link is connected. Until then, these are clearly marked
               placeholders — not real reviews.
             </p>
-            <ul className="mt-10 grid gap-6 md:grid-cols-3">
+            <ul className="mt-10 grid gap-6 lg:grid-cols-3">
               {PLACEHOLDER_TESTIMONIALS.map((t) => (
                 <li
                   key={t.attribution}

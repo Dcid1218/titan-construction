@@ -30,11 +30,9 @@ export function StickyMobileCTA() {
       <div className="mx-auto flex max-w-content gap-2">
         <a
           href={callReady ? telHref() : "#contact"}
-          className="btn-call flex-1 py-3.5 text-sm"
+          className="btn-call min-w-0 flex-1 px-2 py-3.5 text-sm"
         >
-          {callReady
-            ? `Call ${siteConfig.phoneDisplay}`
-            : `Call ${siteConfig.phoneDisplay}`}
+          Call
         </a>
         <a
           href={
@@ -42,11 +40,11 @@ export function StickyMobileCTA() {
               ? smsHref("Hi Titan — I'd like a quote for a project.")
               : "#contact"
           }
-          className="btn-primary flex-1 py-3.5 text-sm"
+          className="btn-primary min-w-0 flex-1 px-2 py-3.5 text-sm"
         >
           Text
         </a>
-        <a href="#contact" className="btn-secondary flex-1 py-3.5 text-sm">
+        <a href="#contact" className="btn-secondary min-w-0 flex-1 px-2 py-3.5 text-sm">
           Quote
         </a>
       </div>

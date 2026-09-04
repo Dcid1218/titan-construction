@@ -31,7 +31,7 @@ export function Header() {
           <img src="/logo.png" alt="Titan Construction & Electric" className="h-11 w-auto object-contain" />
           <span className="hidden sm:inline-block">Titan Construction &amp; Electric</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm font-medium text-titan-silver/90 md:flex">
+        <nav className="hidden items-center gap-5 text-sm font-medium text-titan-silver/90 lg:flex xl:gap-8">
           <a href="#services" className="rounded px-2 py-1 transition-colors hover:text-titan-gold">
             Services
           </a>
@@ -56,9 +56,9 @@ export function Header() {
         </nav>
         <a
           href={callReady ? telHref() : "#contact"}
-          className="btn-primary py-2.5 text-sm md:hidden"
+          className="btn-primary py-2.5 text-sm lg:hidden"
         >
-          {callReady ? `Call ${siteConfig.phoneDisplay}` : "Get a Quote"}
+          {callReady ? "Call Now" : "Get a Quote"}
         </a>
       </div>
     </header>
