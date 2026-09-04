@@ -29,12 +29,12 @@ export function SocialProof() {
     <section id="reviews" className="section-pad bg-titan-blue-dark">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">What neighbors say</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
+        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           Local reputation, not marketing fluff.
         </h2>
 
         {siteConfig.googleReviewsUrl ? (
-          <div className="mt-10 overflow-hidden rounded-sm border border-titan-black/10 bg-titan-black p-4">
+          <div className="mt-10 overflow-hidden rounded-sm border border-brass/20 bg-titan-black p-4">
             {/* Wire real Google Reviews embed / iframe when GBP is connected */}
             <iframe
               title="Google Reviews for Titan Construction"

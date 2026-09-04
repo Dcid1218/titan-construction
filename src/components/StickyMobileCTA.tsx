@@ -44,7 +44,10 @@ export function StickyMobileCTA() {
           }
           className="btn-primary flex-1 py-3.5 text-sm"
         >
-          Text Us
+          Text
+        </a>
+        <a href="#contact" className="btn-secondary flex-1 py-3.5 text-sm">
+          Quote
         </a>
       </div>
     </div>

@@ -26,7 +26,7 @@ export function Gallery() {
     <section id="gallery" className="section-pad bg-titan-black">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">Recent work</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
+        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           See the work before you call.
         </h2>
 
@@ -44,10 +44,10 @@ export function Gallery() {
                 role="tab"
                 aria-selected={active}
                 onClick={() => setFilter(f.id)}
-                className={`rounded-sm px-4 py-2 text-sm font-semibold transition ${
+                className={`rounded-sm px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] transition-all ${
                   active
-                    ? "bg-titan-blue-dark text-titan-silver"
-                    : "bg-titan-blue-dark text-titan-silver ring-1 ring-charcoal/15 hover:ring-charcoal/30"
+                    ? "border border-electric-blue bg-electric-blue/15 text-electric-blue shadow-[0_0_22px_rgba(0,229,255,0.35)]"
+                    : "border border-brass/25 bg-white/[0.03] text-titan-silver/70 hover:border-brass/45 hover:text-titan-silver"
                 }`}
               >
                 {f.label}
@@ -58,22 +58,23 @@ export function Gallery() {
 
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
-            <li
-              key={item.src}
-              className="overflow-hidden rounded-sm border border-titan-black/10 bg-titan-blue-dark shadow-soft"
-            >
+            <li key={item.src} className="card-glass group">
               <div className="relative aspect-[4/3]">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
                   loading="lazy"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-titan-black/85 via-transparent to-transparent"
                 />
               </div>
               <div className="px-4 py-3">
-                <p className="text-xs font-medium uppercase tracking-label text-titan-silver/80">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-electric-blue">
                   {item.category}
                 </p>
                 <p className="mt-1 font-medium text-titan-silver">{item.title}</p>

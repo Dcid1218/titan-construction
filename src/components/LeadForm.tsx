@@ -1,19 +1,8 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { siteConfig, telHref } from "@/lib/site-config";
-
-const serviceOptions = [
-  "Residential Electrical Services",
-  "Commercial Electrical Services & Build-Outs",
-  "Electrical Panel Upgrade",
-  "Outdoor Living — Decks & Porches",
-  "Outdoor Living — Pergolas & Custom Builds",
-  "Indoor Remodeling — Kitchen & Bath",
-  "Indoor Remodeling — Custom Tiling",
-  "Turnkey Remodeling / Construction",
-  "Other / Multiple Services",
-] as const;
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { SERVICE_OPTIONS, siteConfig, telHref } from "@/lib/site-config";
+import { SELECT_SERVICE_EVENT } from "@/lib/motion";
 
 const timelines = ["ASAP", "This month", "Just planning"] as const;
 
@@ -22,7 +11,25 @@ type Status = "idle" | "submitting" | "success" | "error";
 export function LeadForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [service, setService] = useState("");
+  const nameRef = useRef<HTMLInputElement>(null);
   const callReady = Boolean(siteConfig.phoneTel);
+
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const value = (e as CustomEvent<string>).detail;
+      setService(value);
+      setStatus("idle");
+      const target = document.getElementById("contact");
+      if (target) {
+        const y = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: "smooth" });
+        window.setTimeout(() => nameRef.current?.focus({ preventScroll: true }), 700);
+      }
+    };
+    window.addEventListener(SELECT_SERVICE_EVENT, onSelect);
+    return () => window.removeEventListener(SELECT_SERVICE_EVENT, onSelect);
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -49,6 +56,7 @@ export function LeadForm() {
       }
 
       setStatus("success");
+      setService("");
       form.reset();
     } catch {
       setStatus("error");
@@ -63,14 +71,14 @@ export function LeadForm() {
       <div className="mx-auto grid max-w-content gap-12 lg:grid-cols-2 lg:items-start">
         <div>
           <p className="label-eyebrow">Free quote</p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
+          <h2 className="text-gradient-brass mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Get a free quote — no obligation
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-titan-silver/80">
             Tell us what you need. We&apos;ll call you back, usually the same
             day, and give it to you straight — including if it&apos;s not a fit.
           </p>
-          <p className="mt-6 border-l-4 border-brass pl-4 text-base font-medium text-titan-silver">
+          <p className="mt-6 rounded-r-sm border-l-4 border-brass bg-gradient-to-r from-brass/15 to-transparent py-3 pl-4 text-base font-medium text-titan-gold">
             {siteConfig.seasonalUrgency}
           </p>
           {callReady ? (
@@ -78,7 +86,7 @@ export function LeadForm() {
               Prefer to talk now?{" "}
               <a
                 href={telHref()}
-                className="font-semibold text-timber underline-offset-2 hover:underline"
+                className="font-semibold text-electric-blue underline-offset-2 hover:underline"
               >
                 Call {siteConfig.phoneDisplay}
               </a>
@@ -86,10 +94,10 @@ export function LeadForm() {
           ) : null}
         </div>
 
-        <div className="rounded-sm border border-titan-black/10 bg-titan-blue-dark p-6 shadow-soft sm:p-8">
+        <div className="card-glass p-6 sm:p-8">
           {status === "success" ? (
             <div role="status" className="py-8 text-center">
-              <p className="font-display text-2xl font-semibold text-titan-silver">
+              <p className="font-display text-2xl font-semibold text-titan-gold">
                 Got it — we&apos;ll call you back today.
               </p>
               <button
@@ -107,11 +115,12 @@ export function LeadForm() {
                   Name
                 </label>
                 <input
+                  ref={nameRef}
                   id="name"
                   name="name"
                   required
                   autoComplete="name"
-                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
                 />
               </div>
 
@@ -125,7 +134,7 @@ export function LeadForm() {
                   type="tel"
                   required
                   autoComplete="tel"
-                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
                 />
               </div>
 
@@ -137,13 +146,14 @@ export function LeadForm() {
                   id="service"
                   name="service"
                   required
-                  defaultValue=""
-                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
+                  value={service}
+                  onChange={(e) => setService(e.target.value)}
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
                 >
                   <option value="" disabled>
                     Select a service
                   </option>
-                  {serviceOptions.map((opt) => (
+                  {SERVICE_OPTIONS.map((opt) => (
                     <option key={opt} value={opt}>
                       {opt}
                     </option>
@@ -160,7 +170,7 @@ export function LeadForm() {
                   name="location"
                   required
                   autoComplete="address-level2"
-                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
                 />
               </div>
 
@@ -173,7 +183,7 @@ export function LeadForm() {
                   name="timeline"
                   required
                   defaultValue=""
-                  className="mt-1.5 w-full rounded-sm border border-titan-black/20 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-brass"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
                 >
                   <option value="" disabled>
                     When are you looking to start?
@@ -217,7 +227,10 @@ export function LeadForm() {
               </p>
 
               {status === "error" ? (
-                <p role="alert" className="rounded-sm bg-red-50 px-3 py-2 text-sm text-red-900">
+                <p
+                  role="alert"
+                  className="rounded-sm border border-red-400/40 bg-red-950/40 px-3 py-2 text-sm text-red-200"
+                >
                   {errorMessage}
                 </p>
               ) : null}

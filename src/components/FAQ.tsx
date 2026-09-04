@@ -37,25 +37,31 @@ export function FAQ() {
     <section id="faq" className="section-pad bg-titan-blue-dark">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">Before you call</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
+        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           Frequently asked questions
         </h2>
 
-        <div className="mt-10 divide-y divide-charcoal/10 border-y border-titan-black/10">
+        <div className="mt-10 flex flex-col gap-3">
           {faqs.map((item) => (
-            <details key={item.question} className="group py-2">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-3 text-left marker:content-none [&::-webkit-details-marker]:hidden">
-                <span className="font-display text-lg font-semibold text-titan-silver sm:text-xl">
+            <details key={item.question} className="card-glass group px-6">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-5 text-left marker:content-none [&::-webkit-details-marker]:hidden">
+                <span className="font-display text-lg font-semibold text-titan-gold sm:text-xl">
                   {item.question}
                 </span>
-                <span className="mt-1 shrink-0 text-titan-gold group-open:hidden" aria-hidden>
+                <span
+                  aria-hidden
+                  className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-electric-blue/40 text-sm text-electric-blue group-open:hidden"
+                >
                   +
                 </span>
-                <span className="mt-1 hidden shrink-0 text-titan-gold group-open:inline" aria-hidden>
+                <span
+                  aria-hidden
+                  className="mt-0.5 hidden h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-electric-blue/40 text-sm text-electric-blue group-open:flex"
+                >
                   −
                 </span>
               </summary>
-              <p className="pb-4 pr-8 text-base leading-relaxed text-titan-silver/80">
+              <p className="pb-5 pr-8 text-base leading-relaxed text-titan-silver/80">
                 {item.answer}
               </p>
             </details>

@@ -10,6 +10,16 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes titan-float {
+  0%, 100% { transform: translateY(-50%); }
+  50% { transform: translateY(calc(-50% - 18px)); }
+}
+
+@keyframes titan-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
 body {
   @apply bg-titan-black text-titan-silver font-sans antialiased;
 }
@@ -51,5 +61,50 @@ body {
 
   .prose-muted {
     @apply text-base leading-relaxed text-slate;
+  }
+
+  /* Metallic gradient headline text — the "cinematic" brass treatment */
+  .text-gradient-brass {
+    background-image: linear-gradient(180deg, #ffffff, #ebd8bb 45%, #c69c6d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-brass-hero {
+    background-image: linear-gradient(175deg, #ffffff 0%, #f2e3cb 38%, #c69c6d 78%, #9a7444 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-cyan {
+    background-image: linear-gradient(180deg, #cff9ff, #00e5ff 60%, #0088a8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glass card — used for services, why-titan, process, gallery tiles */
+  .card-glass {
+    @apply relative overflow-hidden rounded-sm border border-brass/20 backdrop-blur-md transition-[border-color,box-shadow,transform] duration-500;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(11, 21, 40, 0.55) 55%, rgba(10, 10, 12, 0.7) 100%);
+    box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  .card-glass:hover,
+  .card-glass:focus-within {
+    border-color: rgba(0, 229, 255, 0.55);
+    box-shadow:
+      0 0 0 1px rgba(0, 229, 255, 0.35),
+      0 24px 70px -24px rgba(0, 229, 255, 0.5);
+    transform: translateY(-4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-glass:hover,
+    .card-glass:focus-within {
+      transform: none;
+    }
   }
 }

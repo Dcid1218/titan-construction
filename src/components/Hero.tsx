@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { siteConfig, telHref } from "@/lib/site-config";
 
+const badges = ["Free estimates", "Same-day callback", "Licensed & bonded", "No pressure, no hidden fees"];
+
 export function Hero() {
   return (
-    <section className="relative min-h-[78vh] overflow-hidden bg-titan-black sm:min-h-[88vh]">
+    <section className="relative min-h-[78vh] overflow-hidden bg-titan-black sm:min-h-[88vh]" style={{ isolation: "isolate" }}>
       <Image
         src="/gallery/outdoor/deck-hero.webp"
         alt="Newly built wood deck with clean modern railings on a Midwestern two-story home at golden hour"
@@ -16,16 +18,35 @@ export function Hero() {
         blurDataURL="data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoMAAkABUB8JZACdAEfgggEAAD9T35Rji1YbzQ1DZBqYIvhgJ0pNMNayiGaq/WcLXbHGgucnW4T+AAA"
         sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
         className="object-cover object-center"
+        style={{ filter: "saturate(.55) contrast(1.1) brightness(.42)" }}
       />
       <div
         className="absolute inset-0 bg-gradient-to-r from-titan-black via-titan-black/80 to-titan-blue-dark/50"
         aria-hidden
       />
-      <div className="relative mx-auto flex min-h-[78vh] max-w-content flex-col justify-end px-5 pb-16 pt-28 sm:min-h-[88vh] sm:px-8 sm:pb-20 lg:justify-center lg:px-12 lg:pb-24 lg:pt-32">
+
+      {/* Floating glow watermark logo — cinematic ambient layer */}
+      <img
+        aria-hidden="true"
+        src="/logo.png"
+        alt=""
+        className="pointer-events-none absolute right-[-6%] top-1/2 z-[2] hidden w-[min(760px,72vw)] translate-y-[-50%] opacity-[0.14] motion-reduce:animate-none motion-safe:animate-[titan-float_9s_ease-in-out_infinite] lg:block"
+        style={{ filter: "drop-shadow(0 0 90px rgba(0,229,255,0.5)) saturate(1.15)" }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[2%] top-1/2 z-[2] hidden h-[min(620px,60vw)] w-[min(620px,60vw)] -translate-y-1/2 rounded-full motion-safe:animate-[titan-pulse_4.2s_ease-in-out_infinite] lg:block"
+        style={{
+          background: "radial-gradient(circle, rgba(0,229,255,.3) 0%, rgba(0,229,255,.09) 38%, transparent 68%)",
+          filter: "blur(38px)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-content flex-col justify-end px-5 pb-16 pt-28 sm:min-h-[88vh] sm:px-8 sm:pb-20 lg:justify-center lg:px-12 lg:pb-24 lg:pt-32">
         <p className="label-eyebrow-on-dark mb-4">
           Kendall County &amp; Chicago Suburbs · Commercial &amp; Residential · Licensed &amp; Bonded
         </p>
-        <h1 className="max-w-3xl font-display text-4xl font-semibold leading-[1.1] tracking-tight text-titan-silver sm:text-5xl lg:text-6xl text-shadow-sm">
+        <h1 className="text-gradient-brass-hero max-w-3xl font-display text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl [filter:drop-shadow(0_4px_30px_rgba(0,0,0,0.9))]">
           Electrical, remodeling &amp; construction — upfront pricing, done right from start to finish.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-titan-silver/85 sm:text-xl">
@@ -39,9 +60,14 @@ export function Hero() {
             Get an Upfront Quote — No Obligation
           </a>
         </div>
-        <p className="mt-4 text-sm text-titan-silver/70">
-          Upfront pricing · Start-to-finish management · Fast response
-        </p>
+        <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+          {badges.map((b) => (
+            <li key={b} className="flex items-center gap-2 text-xs font-semibold uppercase tracking-label text-titan-silver/70">
+              <span aria-hidden className="h-1.5 w-1.5 rotate-45 bg-electric-blue shadow-[0_0_10px_rgba(0,229,255,0.9)]" />
+              {b}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

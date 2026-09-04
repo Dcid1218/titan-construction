@@ -96,6 +96,19 @@ export const siteConfig = {
   seasonalUrgency: getSeasonalUrgency(),
 } as const;
 
+/** Single source of truth for the lead form's service dropdown — also used by the quick-picker. */
+export const SERVICE_OPTIONS = [
+  "Residential Electrical Services",
+  "Commercial Electrical Services & Build-Outs",
+  "Electrical Panel Upgrade",
+  "Outdoor Living — Decks & Porches",
+  "Outdoor Living — Pergolas & Custom Builds",
+  "Indoor Remodeling — Kitchen & Bath",
+  "Indoor Remodeling — Custom Tiling",
+  "Turnkey Remodeling / Construction",
+  "Other / Multiple Services",
+] as const;
+
 function getSeasonalUrgency(): string {
   const month = new Date().getMonth(); // 0–11
   // Winter focus: Dec–Feb

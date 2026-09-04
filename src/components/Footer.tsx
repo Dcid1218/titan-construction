@@ -9,7 +9,12 @@ export function Footer() {
       <div className="section-pad mx-auto max-w-content !py-14 pb-28 md:pb-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <p className="font-display text-2xl font-semibold">
+            <img
+              src="/logo.png"
+              alt={siteConfig.name}
+              className="h-16 w-auto object-contain drop-shadow-[0_0_20px_rgba(0,229,255,0.3)]"
+            />
+            <p className="mt-4 font-display text-xl font-semibold">
               {siteConfig.name}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-titan-silver/75">
@@ -20,12 +25,12 @@ export function Footer() {
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>
-                <a href={telHref()} className="text-titan-gold hover:underline">
+                <a href={telHref()} className="text-titan-gold transition-colors hover:text-electric-blue hover:underline">
                   Phone: {siteConfig.phoneDisplay}
                 </a>
               </p>
               <p>
-                <a href={`mailto:${siteConfig.leadEmail}`} className="text-titan-gold hover:underline">
+                <a href={`mailto:${siteConfig.leadEmail}`} className="text-titan-gold transition-colors hover:text-electric-blue hover:underline">
                   Email: {siteConfig.leadEmail}
                 </a>
               </p>

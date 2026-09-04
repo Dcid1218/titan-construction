@@ -13,7 +13,7 @@ export function Services() {
     <section id="services" className="section-pad bg-titan-black">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">What we build</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-titan-silver sm:text-4xl">
+        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           If it&apos;s not on the short list below, we&apos;ve probably already
           built it.
         </h2>
@@ -22,17 +22,18 @@ export function Services() {
           {categories.map((cat) => {
             const img = serviceImages[cat.id as keyof typeof serviceImages];
             return (
-              <article
-                key={cat.id}
-                className="group overflow-hidden rounded-sm border border-titan-black/10 bg-titan-blue-dark shadow-soft"
-              >
+              <article key={cat.id} className="card-glass group">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    className="object-cover transition duration-500 group-hover:scale-[1.06]"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-electric-blue/70 to-transparent"
                   />
                 </div>
                 <div className="p-6">
