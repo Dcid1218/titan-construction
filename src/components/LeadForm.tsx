@@ -71,7 +71,7 @@ export function LeadForm() {
       <div className="mx-auto grid max-w-content gap-12 lg:grid-cols-2 lg:items-start">
         <div>
           <p className="label-eyebrow">Free quote</p>
-          <h2 className="text-gradient-brass mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="text-titan-silver mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Get a free quote — no obligation
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-titan-silver/80">
@@ -120,7 +120,7 @@ export function LeadForm() {
                   name="name"
                   required
                   autoComplete="name"
-                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/30"
                 />
               </div>
 
@@ -134,7 +134,7 @@ export function LeadForm() {
                   type="tel"
                   required
                   autoComplete="tel"
-                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/30"
                 />
               </div>
 
@@ -148,7 +148,7 @@ export function LeadForm() {
                   required
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/30"
                 >
                   <option value="" disabled>
                     Select a service
@@ -170,7 +170,7 @@ export function LeadForm() {
                   name="location"
                   required
                   autoComplete="address-level2"
-                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/30"
                 />
               </div>
 
@@ -183,7 +183,7 @@ export function LeadForm() {
                   name="timeline"
                   required
                   defaultValue=""
-                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:shadow-[0_0_0_1px_rgba(0,229,255,0.45),0_0_26px_rgba(0,229,255,0.28)]"
+                  className="mt-1.5 w-full rounded-sm border border-brass/25 bg-titan-black px-3 py-3 text-titan-silver outline-none focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/30"
                 >
                   <option value="" disabled>
                     When are you looking to start?

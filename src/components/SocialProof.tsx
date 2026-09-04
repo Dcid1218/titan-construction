@@ -29,7 +29,7 @@ export function SocialProof() {
     <section id="reviews" className="section-pad bg-titan-blue-dark">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">What neighbors say</p>
-        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-titan-silver mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           Local reputation, not marketing fluff.
         </h2>
 

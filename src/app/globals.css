@@ -3,21 +3,11 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-@keyframes titan-float {
-  0%, 100% { transform: translateY(-50%); }
-  50% { transform: translateY(calc(-50% - 18px)); }
-}
-
-@keyframes titan-pulse {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 0.85; }
 }
 
 body {
@@ -26,7 +16,7 @@ body {
 
 /* Visible keyboard focus — WCAG AA floor */
 :focus-visible {
-  outline: 2px solid #00E5FF;
+  outline: 2px solid #00e5ff;
   outline-offset: 3px;
 }
 
@@ -44,15 +34,15 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-titan-gold px-6 py-3.5 text-base font-semibold text-titan-black transition hover:bg-[#b58c5c] hover:shadow-[0_0_15px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-titan-gold px-6 py-3.5 text-base font-semibold text-titan-black shadow-soft transition hover:bg-[#b58c5c] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-titan-silver/20 bg-titan-blue-dark/90 px-6 py-3.5 text-base font-semibold text-titan-silver transition hover:border-electric-blue/50 hover:bg-titan-blue-dark hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-titan-silver/20 bg-titan-blue-dark px-6 py-3.5 text-base font-semibold text-titan-silver transition hover:border-titan-gold/50 hover:bg-titan-blue-dark/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue;
   }
 
   .btn-call {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-electric-blue px-6 py-3.5 text-base font-semibold text-titan-black transition hover:bg-[#00cce6] hover:shadow-[0_0_20px_rgba(0,229,255,0.8)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-gold;
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-electric-blue px-6 py-3.5 text-base font-semibold text-titan-black shadow-soft transition hover:bg-[#00cce6] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-titan-gold;
   }
 
   .section-pad {
@@ -63,42 +53,15 @@ body {
     @apply text-base leading-relaxed text-slate;
   }
 
-  /* Metallic gradient headline text — the "cinematic" brass treatment */
-  .text-gradient-brass {
-    background-image: linear-gradient(180deg, #ffffff, #ebd8bb 45%, #c69c6d 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .text-gradient-brass-hero {
-    background-image: linear-gradient(175deg, #ffffff 0%, #f2e3cb 38%, #c69c6d 78%, #9a7444 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .text-gradient-cyan {
-    background-image: linear-gradient(180deg, #cff9ff, #00e5ff 60%, #0088a8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  /* Glass card — used for services, why-titan, process, gallery tiles */
+  /* Standard card treatment — services, why-titan, gallery tiles, FAQ */
   .card-glass {
-    @apply relative overflow-hidden rounded-sm border border-brass/20 backdrop-blur-md transition-[border-color,box-shadow,transform] duration-500;
-    background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(11, 21, 40, 0.55) 55%, rgba(10, 10, 12, 0.7) 100%);
-    box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.9);
+    @apply relative overflow-hidden rounded-sm border border-brass/20 bg-titan-blue-dark shadow-soft transition-[border-color,box-shadow,transform] duration-300;
   }
 
   .card-glass:hover,
   .card-glass:focus-within {
-    border-color: rgba(0, 229, 255, 0.55);
-    box-shadow:
-      0 0 0 1px rgba(0, 229, 255, 0.35),
-      0 24px 70px -24px rgba(0, 229, 255, 0.5);
-    transform: translateY(-4px);
+    @apply border-brass/50 shadow-lg;
+    transform: translateY(-3px);
   }
 
   @media (prefers-reduced-motion: reduce) {

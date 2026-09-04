@@ -19,8 +19,8 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-40 border-b transition-colors duration-300 ${
         scrolled
-          ? "border-brass/20 bg-titan-black/85 backdrop-blur-lg shadow-[0_12px_40px_-20px_rgba(0,0,0,0.95)]"
-          : "border-transparent bg-transparent"
+          ? "border-brass/20 bg-titan-black/95 shadow-soft"
+          : "border-transparent bg-gradient-to-b from-titan-black/70 to-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-content items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
@@ -28,24 +28,20 @@ export function Header() {
           href="/"
           className="flex items-center gap-3 font-display text-xl font-semibold tracking-tight text-titan-silver sm:text-2xl"
         >
-          <img
-            src="/logo.png"
-            alt="Titan Construction & Electric"
-            className="h-11 w-auto object-contain drop-shadow-[0_0_14px_rgba(0,229,255,0.35)]"
-          />
+          <img src="/logo.png" alt="Titan Construction & Electric" className="h-11 w-auto object-contain" />
           <span className="hidden sm:inline-block">Titan Construction &amp; Electric</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-titan-silver/90 md:flex">
-          <a href="#services" className="rounded px-2 py-1 transition-colors hover:text-titan-gold hover:shadow-[0_0_10px_rgba(0,229,255,0.4)]">
+          <a href="#services" className="rounded px-2 py-1 transition-colors hover:text-titan-gold">
             Services
           </a>
-          <a href="#gallery" className="rounded px-2 py-1 transition-colors hover:text-titan-gold hover:shadow-[0_0_10px_rgba(0,229,255,0.4)]">
+          <a href="#gallery" className="rounded px-2 py-1 transition-colors hover:text-titan-gold">
             Work
           </a>
-          <a href="#faq" className="rounded px-2 py-1 transition-colors hover:text-titan-gold hover:shadow-[0_0_10px_rgba(0,229,255,0.4)]">
+          <a href="#faq" className="rounded px-2 py-1 transition-colors hover:text-titan-gold">
             FAQ
           </a>
-          <a href="#contact" className="rounded px-2 py-1 transition-colors hover:text-titan-gold hover:shadow-[0_0_10px_rgba(0,229,255,0.4)]">
+          <a href="#contact" className="rounded px-2 py-1 transition-colors hover:text-titan-gold">
             Quote
           </a>
           {callReady ? (

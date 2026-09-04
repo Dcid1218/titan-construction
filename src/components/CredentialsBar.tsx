@@ -12,17 +12,12 @@ const stats = [
 
 function Stat({ target, suffix, label }: (typeof stats)[number]) {
   const { ref, value } = useCountUp(target);
-  const isAccent = suffix === "%";
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
       className="flex flex-1 flex-col items-center justify-center gap-2.5 border-b border-brass/10 px-4 py-8 last:border-b-0 sm:border-b-0 sm:border-r sm:border-brass/20 sm:last:border-r-0"
     >
-      <p
-        className={`font-display text-4xl font-bold leading-none ${
-          isAccent ? "text-gradient-cyan" : "text-gradient-brass"
-        }`}
-      >
+      <p className="font-display text-4xl font-bold leading-none text-titan-gold">
         {value}
         {suffix}
       </p>
@@ -35,10 +30,7 @@ function Stat({ target, suffix, label }: (typeof stats)[number]) {
 
 export function CredentialsBar() {
   return (
-    <section
-      aria-label="Credentials"
-      className="border-y border-brass/15 bg-gradient-to-b from-titan-blue-dark/70 to-titan-black backdrop-blur"
-    >
+    <section aria-label="Credentials" className="border-y border-brass/15 bg-titan-blue-dark">
       <div className="mx-auto flex max-w-content flex-col sm:flex-row">
         {stats.map((s) => (
           <Stat key={s.label} {...s} />

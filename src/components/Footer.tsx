@@ -12,7 +12,7 @@ export function Footer() {
             <img
               src="/logo.png"
               alt={siteConfig.name}
-              className="h-16 w-auto object-contain drop-shadow-[0_0_20px_rgba(0,229,255,0.3)]"
+              className="h-16 w-auto object-contain"
             />
             <p className="mt-4 font-display text-xl font-semibold">
               {siteConfig.name}

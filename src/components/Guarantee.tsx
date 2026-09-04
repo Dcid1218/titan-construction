@@ -18,7 +18,7 @@ export function Guarantee() {
       />
       <div className="relative mx-auto max-w-3xl text-center">
         <p className="label-eyebrow">Our promise</p>
-        <h2 className="text-gradient-brass mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-titan-silver mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           Licensed &amp; Bonded. Upfront Pricing. Client Comes First.
         </h2>
         <p className="mt-6 text-lg leading-relaxed text-titan-silver/80">

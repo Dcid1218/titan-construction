@@ -16,7 +16,7 @@ export function EmergencyBanner() {
             call and talk to an electrician.
           </p>
         </div>
-        <a href={telHref()} className="btn-call shrink-0 text-base shadow-[0_0_28px_rgba(0,229,255,0.5)]">
+        <a href={telHref()} className="btn-call shrink-0 text-base">
           Call {siteConfig.phoneDisplay}
         </a>
       </div>

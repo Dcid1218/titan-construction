@@ -13,7 +13,7 @@ export function Services() {
     <section id="services" className="section-pad bg-titan-black">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">What we build</p>
-        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-titan-silver mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           If it&apos;s not on the short list below, we&apos;ve probably already
           built it.
         </h2>

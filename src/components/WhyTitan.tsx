@@ -19,7 +19,7 @@ export function WhyTitan() {
     <section id="why-titan" className="section-pad bg-titan-blue-dark text-titan-silver">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow-on-dark">Why Titan</p>
-        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-titan-silver mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           Built for clients who expect upfront pricing and start-to-finish excellence.
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">

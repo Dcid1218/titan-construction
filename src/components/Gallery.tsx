@@ -26,7 +26,7 @@ export function Gallery() {
     <section id="gallery" className="section-pad bg-titan-black">
       <div className="mx-auto max-w-content">
         <p className="label-eyebrow">Recent work</p>
-        <h2 className="text-gradient-brass mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-titan-silver mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
           See the work before you call.
         </h2>
 
@@ -46,7 +46,7 @@ export function Gallery() {
                 onClick={() => setFilter(f.id)}
                 className={`rounded-sm px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] transition-all ${
                   active
-                    ? "border border-electric-blue bg-electric-blue/15 text-electric-blue shadow-[0_0_22px_rgba(0,229,255,0.35)]"
+                    ? "border border-electric-blue bg-electric-blue text-titan-black"
                     : "border border-brass/25 bg-white/[0.03] text-titan-silver/70 hover:border-brass/45 hover:text-titan-silver"
                 }`}
               >
