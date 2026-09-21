@@ -59,10 +59,8 @@ export async function POST(req: NextRequest) {
   const receivedAt = new Date().toISOString();
   let photoFilename: string | undefined;
 
-  const dataDir = path.join(process.cwd(), "data");
-  const uploadsDir = path.join(dataDir, "uploads");
-  await mkdir(uploadsDir, { recursive: true });
-
+  // Photos: best-effort local write (works in local/dev). Vercel disk is ephemeral —
+  // never fail the request if write fails; CRM remains the durable store.
   if (photo && typeof photo !== "string" && photo.size > 0) {
     if (photo.size > MAX_PHOTO_BYTES) {
       return badRequest("Photo must be under 8MB.");
@@ -70,7 +68,14 @@ export async function POST(req: NextRequest) {
     const safeBase = photo.name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 80);
     photoFilename = `${Date.now()}-${safeBase || "photo.jpg"}`;
     const bytes = Buffer.from(await photo.arrayBuffer());
-    await writeFile(path.join(uploadsDir, photoFilename), bytes);
+    try {
+      const dataDir = path.join(process.cwd(), "data");
+      const uploadsDir = path.join(dataDir, "uploads");
+      await mkdir(uploadsDir, { recursive: true });
+      await writeFile(path.join(uploadsDir, photoFilename), bytes);
+    } catch (err) {
+      console.warn("[lead] Local photo write skipped (expected on Vercel):", err);
+    }
   }
 
   const lead: LeadPayload = {
@@ -83,20 +88,22 @@ export async function POST(req: NextRequest) {
     receivedAt,
   };
 
-  // Durable local capture — never rely on console.log alone
+  let savedLocal = false;
   try {
+    const dataDir = path.join(process.cwd(), "data");
+    await mkdir(dataDir, { recursive: true });
     await appendFile(
       path.join(dataDir, "leads.jsonl"),
       `${JSON.stringify(lead)}\n`,
-      "utf8"
+      "utf8",
     );
+    savedLocal = true;
   } catch (err) {
-    console.error("[lead] Failed to write leads.jsonl", err);
-    return serverError(
-      `That didn't go through — call us directly at ${siteConfig.phoneDisplay} and we'll get you taken care of.`
-    );
+    // Vercel serverless has no durable local disk — CRM is the source of truth.
+    console.warn("[lead] Local leads.jsonl write skipped:", err);
   }
 
+  let emailed = false;
   const resendKey = process.env.RESEND_API_KEY?.trim();
   const leadEmail = siteConfig.leadEmail || process.env.LEAD_EMAIL?.trim();
 
@@ -126,29 +133,24 @@ export async function POST(req: NextRequest) {
       });
 
       if (error) {
-        console.error("[lead] Resend error (lead still saved to data/leads.jsonl):", error);
-        // Lead is already persisted locally — still return success so the
-        // homeowner isn't stuck. Ops must monitor Resend config.
+        console.error("[lead] Resend error:", error);
+      } else {
+        emailed = true;
       }
     } catch (err) {
-      console.error("[lead] Resend threw (lead still saved):", err);
+      console.error("[lead] Resend threw:", err);
     }
-  } else {
-    // TODO: add RESEND_API_KEY + LEAD_EMAIL (and optional RESEND_FROM_EMAIL)
-    // before launch so leads arrive by email. Until then, leads land in
-    // data/leads.jsonl — check that file after every test submit.
-    console.warn(
-      "[lead] Email not configured. Lead saved to data/leads.jsonl. Set RESEND_API_KEY and LEAD_EMAIL."
-    );
   }
 
-  // Forward into Titan Construction CRM (dashboard) when configured.
-  // CRM owns durable lead storage + owner SMS; local jsonl/email remain fallbacks.
+  // CRM is the durable store in production.
+  let crmOk = false;
   const crmUrl = process.env.TITAN_CRM_INTAKE_URL?.trim();
   const crmSecret = process.env.TITAN_CRM_FUNNEL_SECRET?.trim();
   if (crmUrl && crmSecret) {
     try {
-      const idempotencyKey = `site:${phone.replace(/\D/g, "")}:${receivedAt.slice(0, 16)}`;
+      const idempotencyKey = `site:${phone.replace(/\D/g, "")}:${receivedAt.slice(0, 13)}`;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 8000);
       const crmRes = await fetch(crmUrl, {
         method: "POST",
         headers: {
@@ -165,21 +167,32 @@ export async function POST(req: NextRequest) {
           idempotencyKey,
           photoFilename,
         }),
-        // Don't hang the homeowner form on a slow CRM.
-        signal: AbortSignal.timeout(8000),
-      });
-      if (!crmRes.ok) {
+        signal: controller.signal,
+      }).finally(() => clearTimeout(timer));
+      if (crmRes.ok) {
+        crmOk = true;
+      } else {
         const text = await crmRes.text().catch(() => "");
         console.error(
-          "[lead] CRM intake failed (lead still saved locally):",
+          "[lead] CRM intake failed:",
           crmRes.status,
           text.slice(0, 300),
         );
       }
     } catch (err) {
-      console.error("[lead] CRM intake threw (lead still saved locally):", err);
+      console.error("[lead] CRM intake threw:", err);
     }
+  } else {
+    console.warn(
+      "[lead] TITAN_CRM_INTAKE_URL / TITAN_CRM_FUNNEL_SECRET not set — CRM forward skipped.",
+    );
   }
 
-  return NextResponse.json({ ok: true });
+  if (!crmOk && !savedLocal && !emailed) {
+    return serverError(
+      `That didn't go through — call us directly at ${siteConfig.phoneDisplay} and we'll get you taken care of.`,
+    );
+  }
+
+  return NextResponse.json({ ok: true, crm: crmOk });
 }
