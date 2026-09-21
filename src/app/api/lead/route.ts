@@ -142,5 +142,44 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // Forward into Titan Construction CRM (dashboard) when configured.
+  // CRM owns durable lead storage + owner SMS; local jsonl/email remain fallbacks.
+  const crmUrl = process.env.TITAN_CRM_INTAKE_URL?.trim();
+  const crmSecret = process.env.TITAN_CRM_FUNNEL_SECRET?.trim();
+  if (crmUrl && crmSecret) {
+    try {
+      const idempotencyKey = `site:${phone.replace(/\D/g, "")}:${receivedAt.slice(0, 16)}`;
+      const crmRes = await fetch(crmUrl, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-titan-funnel-secret": crmSecret,
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          service,
+          location,
+          timeline,
+          source: "website",
+          idempotencyKey,
+          photoFilename,
+        }),
+        // Don't hang the homeowner form on a slow CRM.
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!crmRes.ok) {
+        const text = await crmRes.text().catch(() => "");
+        console.error(
+          "[lead] CRM intake failed (lead still saved locally):",
+          crmRes.status,
+          text.slice(0, 300),
+        );
+      }
+    } catch (err) {
+      console.error("[lead] CRM intake threw (lead still saved locally):", err);
+    }
+  }
+
   return NextResponse.json({ ok: true });
 }
